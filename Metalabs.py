@@ -41,10 +41,6 @@ def clear():
 
 def Mainthread():
   clear()
-  #client_id = "753034404586324132"
-  #RPC = Presence(client_id, pipe=0)
-  #RPC.connect() # Start the handshake loop
-  #RPC.update(large_image="large", details="Cooking the Competition!", state='v0.0.1', small_image="smal", start=1)
 
   with open('Token.json') as datas_file:
     global token_loaded
@@ -786,11 +782,9 @@ result = Key.activate(token=auth,\
                    machine_code=Helpers.GetMachineCode())
 
 if result[0] == None or not Helpers.IsOnRightMachine(result[0]):
-    # an error occurred or the key is invalid or it cannot be activated
-    # (eg. the limit of activated devices was achieved)
     print("The license does not work: {0}".format(result[1]))
 else:
-    # everything went fine if we are here!
+
     print("The license is valid!")
     os.system("title Arsenal AIO Welcome Back: %s" % key_loaded["Key"])
 
