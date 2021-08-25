@@ -48,10 +48,6 @@ def clear():
 
 def Mainthread():
   clear()
-  #client_id = "753034404586324132"
-  #RPC = Presence(client_id, pipe=0)
-  #RPC.connect() # Start the handshake loop
-  #RPC.update(large_image="large", details="Cooking the Competition!", state='v0.0.1', small_image="smal", start=1)
 
   with open('Token.json') as datas_file:
     global token_loaded
