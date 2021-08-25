@@ -6,8 +6,6 @@ import datetime
 from colorama import init
 from termcolor import colored
 from discord import Webhook, RequestsWebhookAdapter, AsyncWebhookAdapter
-# import only system from os 
-from os import system, name 
 import os
 import copy
 import io
@@ -29,6 +27,15 @@ try:
 except NameError: 
   to_unicode = str
 
+def ArsenalLogo():
+  print(""" 
+ █████╗ ██████╗  ██████╗███████╗███╗  ██╗ █████╗ ██╗
+██╔══██╗██╔══██╗██╔════╝██╔════╝████╗ ██║██╔══██╗██║
+███████║██████╔╝╚█████╗ █████╗  ██╔██╗██║███████║██║
+██╔══██║██╔══██╗ ╚═══██╗██╔══╝  ██║╚████║██╔══██║██║
+██║  ██║██║  ██║██████╔╝███████╗██║ ╚███║██║  ██║███████╗
+╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚══╝╚═╝  ╚═╝╚══════╝""")
+
 
 
 
@@ -41,6 +48,10 @@ def clear():
 
 def Mainthread():
   clear()
+  #client_id = "753034404586324132"
+  #RPC = Presence(client_id, pipe=0)
+  #RPC.connect() # Start the handshake loop
+  #RPC.update(large_image="large", details="Cooking the Competition!", state='v0.0.1', small_image="smal", start=1)
 
   with open('Token.json') as datas_file:
     global token_loaded
@@ -50,13 +61,8 @@ def Mainthread():
     global webhook_loaded
     webhook_loaded = json.load(daters_file)    
 
+  ArsenalLogo()
   print("""
- █████╗ ██████╗  ██████╗███████╗███╗  ██╗ █████╗ ██╗
-██╔══██╗██╔══██╗██╔════╝██╔════╝████╗ ██║██╔══██╗██║
-███████║██████╔╝╚█████╗ █████╗  ██╔██╗██║███████║██║
-██╔══██║██╔══██╗ ╚═══██╗██╔══╝  ██║╚████║██╔══██║██║
-██║  ██║██║  ██║██████╔╝███████╗██║ ╚███║██║  ██║███████╗
-╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚══╝╚═╝  ╚═╝╚══════╝
 
 
 Home
@@ -83,13 +89,8 @@ Mode 7 | Settings
 
     clear()
 
+    ArsenalLogo()
     print("""
- █████╗ ██████╗  ██████╗███████╗███╗  ██╗ █████╗ ██╗
-██╔══██╗██╔══██╗██╔════╝██╔════╝████╗ ██║██╔══██╗██║
-███████║██████╔╝╚█████╗ █████╗  ██╔██╗██║███████║██║
-██╔══██║██╔══██╗ ╚═══██╗██╔══╝  ██║╚████║██╔══██║██║
-██║  ██║██║  ██║██████╔╝███████╗██║ ╚███║██║  ██║███████╗
-╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚══╝╚═╝  ╚═╝╚══════╝
 
 
 Settings
@@ -106,13 +107,8 @@ Settings
 
       clear()
 
+      ArsenalLogo()
       print("""
- █████╗ ██████╗  ██████╗███████╗███╗  ██╗ █████╗ ██╗
-██╔══██╗██╔══██╗██╔════╝██╔════╝████╗ ██║██╔══██╗██║
-███████║██████╔╝╚█████╗ █████╗  ██╔██╗██║███████║██║
-██╔══██║██╔══██╗ ╚═══██╗██╔══╝  ██║╚████║██╔══██║██║
-██║  ██║██║  ██║██████╔╝███████╗██║ ╚███║██║  ██║███████╗
-╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚══╝╚═╝  ╚═╝╚══════╝
 
 
 Settings | Webhook
@@ -139,13 +135,8 @@ Settings | Webhook
 
       clear()
 
+      ArsenalLogo()
       print("""
- █████╗ ██████╗  ██████╗███████╗███╗  ██╗ █████╗ ██╗
-██╔══██╗██╔══██╗██╔════╝██╔════╝████╗ ██║██╔══██╗██║
-███████║██████╔╝╚█████╗ █████╗  ██╔██╗██║███████║██║
-██╔══██║██╔══██╗ ╚═══██╗██╔══╝  ██║╚████║██╔══██║██║
-██║  ██║██║  ██║██████╔╝███████╗██║ ╚███║██║  ██║███████╗
-╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚══╝╚═╝  ╚═╝╚══════╝
 
 
 Settings | Token
@@ -171,13 +162,9 @@ Settings | Token
 
   elif (ModePicker == '1'):
     clear()
+
+    ArsenalLogo()
     print("""
- █████╗ ██████╗  ██████╗███████╗███╗  ██╗ █████╗ ██╗
-██╔══██╗██╔══██╗██╔════╝██╔════╝████╗ ██║██╔══██╗██║
-███████║██████╔╝╚█████╗ █████╗  ██╔██╗██║███████║██║
-██╔══██║██╔══██╗ ╚═══██╗██╔══╝  ██║╚████║██╔══██║██║ 
-██║  ██║██║  ██║██████╔╝███████╗██║ ╚███║██║  ██║███████╗
-╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚══╝╚═╝  ╚═╝╚══════╝
 
 
 MetaLabs Free Account Creation
@@ -202,14 +189,7 @@ MetaLabs Free Account Creation
 
     clear()
 
-    print("""
- █████╗ ██████╗  ██████╗███████╗███╗  ██╗ █████╗ ██╗
-██╔══██╗██╔══██╗██╔════╝██╔════╝████╗ ██║██╔══██╗██║
-███████║██████╔╝╚█████╗ █████╗  ██╔██╗██║███████║██║
-██╔══██║██╔══██╗ ╚═══██╗██╔══╝  ██║╚████║██╔══██║██║
-██║  ██║██║  ██║██████╔╝███████╗██║ ╚███║██║  ██║███████╗
-╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚══╝╚═╝  ╚═╝╚══════╝                                                                                                                                                                                                                   
-    """)
+    ArsenalLogo()
     print(""" ACCOUNT INFORMATION
     """)
     print('['+str(Name)+']')
@@ -228,6 +208,7 @@ MetaLabs Free Account Creation
 
         @client.event
         async def on_message(message):
+          #Search for a message in discord
           if message.channel.id == int(ChannelId):
             something = message.content
             try:
@@ -265,6 +246,7 @@ MetaLabs Free Account Creation
               pass
             
             try:
+              #Once it found the link try and POST to it with checkout information
               print('200 OK | Found Release ID: %s...' % str(ReleaseID))
 
               print(colored('200 OK | Found Datadome Cookie','white')) 
@@ -297,6 +279,7 @@ MetaLabs Free Account Creation
               
               print(colored('200 OK | Entered Information... | Processing...','white'))
 
+              #Tests to see if the checkout went through
               karry = requests.request("POST", url, headers=headers, data=payload)
               larry = karry.text
 
@@ -310,6 +293,7 @@ MetaLabs Free Account Creation
 
               b_in_dict =  "processing" in larry
               if (b_in_dict == True):
+                #The POST was succesfull
                 print(colored('200 OK | Succesfully Purchased. Check Email!','green'))  
                 
                 client = discord.Client()
@@ -322,6 +306,7 @@ MetaLabs Free Account Creation
                 webhook.send(embed=embed)
 
               else:
+                #The POST was not succesfull
                 print(colored('400 Bad Request | OOS/Error. Maybe next time.', 'red'))
                 client = discord.Client()
                 webhook = Webhook.from_url(webhook_loaded["Webhook"], adapter=RequestsWebhookAdapter())
@@ -332,6 +317,7 @@ MetaLabs Free Account Creation
                 embed.add_field(name="Email", value="||" + Email + "||")
                 webhook.send(embed=embed)
 
+              #Prints how long it took to purchase. Usually it was around 200ms but was greatly determined on internet speed
               print("It took %.2f seconds to purchase" % delta)
               link = None
             except Exception:
@@ -349,13 +335,8 @@ MetaLabs Free Account Creation
 
     clear()
 
+    ArsenalLogo()
     print("""
- █████╗ ██████╗  ██████╗███████╗███╗  ██╗ █████╗ ██╗
-██╔══██╗██╔══██╗██╔════╝██╔════╝████╗ ██║██╔══██╗██║
-███████║██████╔╝╚█████╗ █████╗  ██╔██╗██║███████║██║
-██╔══██║██╔══██╗ ╚═══██╗██╔══╝  ██║╚████║██╔══██║██║
-██║  ██║██║  ██║██████╔╝███████╗██║ ╚███║██║  ██║███████╗
-╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚══╝╚═╝  ╚═╝╚══════╝
 
 
  MetaLabs Free Account Creation
@@ -379,14 +360,7 @@ MetaLabs Free Account Creation
 
     clear()
 
-    print("""
- █████╗ ██████╗  ██████╗███████╗███╗  ██╗ █████╗ ██╗
-██╔══██╗██╔══██╗██╔════╝██╔════╝████╗ ██║██╔══██╗██║
-███████║██████╔╝╚█████╗ █████╗  ██╔██╗██║███████║██║
-██╔══██║██╔══██╗ ╚═══██╗██╔══╝  ██║╚████║██╔══██║██║
-██║  ██║██║  ██║██████╔╝███████╗██║ ╚███║██║  ██║███████╗
-╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚══╝╚═╝  ╚═╝╚══════╝                                                                                                                                                                                                                     
-    """)
+    ArsenalLogo()
     print(""" ACCOUNT INFORMATION
     """)
     print('['+str(Name)+']')
@@ -400,7 +374,7 @@ MetaLabs Free Account Creation
     PasswordName = input('Password: ')
     start = time.time()
 
-    
+    #This mode does not use discord to find the link but instead asks the user for the link
     url = 'https://%s/purchase?password=%s' % (BaseLink, PasswordName)
     r = requests.get(url)
     print('200 OK | Found URL...')
@@ -409,9 +383,12 @@ MetaLabs Free Account Creation
 
     data = json.loads(script)
 
+    #Tries to find the ReleaseID of the metalabs link
     ReleaseID = data['props']['pageProps']['release']['id']
+    #Tries to find the AccountID of the metalabs website
     AccountID = data['props']['pageProps']['release']['plan']['account']
 
+    #Once it finds the information it needs to will try and POST the checkout information
     print('200 OK | Found Release ID: %s...' % str(ReleaseID))
 
     print(colored('200 OK | Found Datadome Cookie','white')) 
@@ -467,14 +444,7 @@ MetaLabs Free Account Creation
 
     clear()
 
-    print("""
- █████╗ ██████╗  ██████╗███████╗███╗  ██╗ █████╗ ██╗
-██╔══██╗██╔══██╗██╔════╝██╔════╝████╗ ██║██╔══██╗██║
-███████║██████╔╝╚█████╗ █████╗  ██╔██╗██║███████║██║
-██╔══██║██╔══██╗ ╚═══██╗██╔══╝  ██║╚████║██╔══██║██║
-██║  ██║██║  ██║██████╔╝███████╗██║ ╚███║██║  ██║███████╗
-╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚══╝╚═╝  ╚═╝╚══════╝                                                                                                                                                                                                                     
-    """)
+    ArsenalLogo()
     print(""" ACCOUNT INFORMATION
 ----------------------------------------------------------------
     """)
@@ -489,6 +459,7 @@ MetaLabs Free Account Creation
 
     @client.event
     async def on_message(message):
+      #Tries to find a discord link within a discord channel
         if message.channel.id == int(ChannelId):
             something = message.content
             try:
@@ -522,14 +493,14 @@ MetaLabs Free Account Creation
             start = time.time()
             page = requests.get(link)
 
-
+            #Tries to scrape a website for the stockbutton id and find the link associated with it
             soup = BeautifulSoup(page.content, 'html.parser')
 
             for a in soup.find_all('a', {"id" : "stockButton"}, href=True):
                 print("Found the URL:", a['href'])
                 laggers = a['href']
 
-
+            #Once it finds the link it will try and POST information to join the discord server
             url = "https://discord.com/api/v8/invites/%s" % laggers
 
             payload={}
@@ -564,13 +535,9 @@ MetaLabs Free Account Creation
     client.run(TOKEN, bot=False)
 
   elif (ModePicker == '4'):
+
+    ArsenalLogo()
     print("""
- █████╗ ██████╗  ██████╗███████╗███╗  ██╗ █████╗ ██╗
-██╔══██╗██╔══██╗██╔════╝██╔════╝████╗ ██║██╔══██╗██║
-███████║██████╔╝╚█████╗ █████╗  ██╔██╗██║███████║██║
-██╔══██║██╔══██╗ ╚═══██╗██╔══╝  ██║╚████║██╔══██║██║
-██║  ██║██║  ██║██████╔╝███████╗██║ ╚███║██║  ██║███████╗
-╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚══╝╚═╝  ╚═╝╚══════╝
 
 
 Discord Invite Joiner
@@ -587,13 +554,8 @@ Discord Invite Joiner
 
       clear()
 
+      ArsenalLogo()
       print("""
-   █████╗ ██████╗  ██████╗███████╗███╗  ██╗ █████╗ ██╗
-  ██╔══██╗██╔══██╗██╔════╝██╔════╝████╗ ██║██╔══██╗██║
-  ███████║██████╔╝╚█████╗ █████╗  ██╔██╗██║███████║██║
-  ██╔══██║██╔══██╗ ╚═══██╗██╔══╝  ██║╚████║██╔══██║██║
-  ██║  ██║██║  ██║██████╔╝███████╗██║ ╚███║██║  ██║███████╗
-  ╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚══╝╚═╝  ╚═╝╚══════╝
 
 
   Discord Invite Joiner | Auto
@@ -693,13 +655,8 @@ Discord Invite Joiner
 
       clear()
 
+      ArsenalLogo()
       print("""
-   █████╗ ██████╗  ██████╗███████╗███╗  ██╗ █████╗ ██╗
-  ██╔══██╗██╔══██╗██╔════╝██╔════╝████╗ ██║██╔══██╗██║
-  ███████║██████╔╝╚█████╗ █████╗  ██╔██╗██║███████║██║
-  ██╔══██║██╔══██╗ ╚═══██╗██╔══╝  ██║╚████║██╔══██║██║
-  ██║  ██║██║  ██║██████╔╝███████╗██║ ╚███║██║  ██║███████╗
-  ╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚══╝╚═╝  ╚═╝╚══════╝
 
 
   Discord Invite Joiner | Manuel
@@ -782,9 +739,11 @@ result = Key.activate(token=auth,\
                    machine_code=Helpers.GetMachineCode())
 
 if result[0] == None or not Helpers.IsOnRightMachine(result[0]):
+    # an error occurred or the key is invalid or it cannot be activated
+    # (eg. the limit of activated devices was achieved)
     print("The license does not work: {0}".format(result[1]))
 else:
-
+    # everything went fine if we are here!
     print("The license is valid!")
     os.system("title Arsenal AIO Welcome Back: %s" % key_loaded["Key"])
 
