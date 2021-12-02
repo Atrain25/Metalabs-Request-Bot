@@ -699,52 +699,6 @@ Discord Invite Joiner
 now = datetime.datetime.now()
 init()
 
-
-RSAPubKey = "<RSAKeyValue><Modulus>qTmfRtq0cnfwG3T35SkWNnwKLYLcOp8vrkHUII09v8iSaebz7ZAMx6/oENgerkdTJQxg8IP50lFmuoyoNtCjdDL7pxPu2noHyHSl7StRJ98vIt+cpUhBrcbFCu0wUBxDSpr/+rJuswk4S4n4kNeLH4/97pawj0jzG8x+djzAK2L/1tolkhK94Y4U3tIAR+lxoR8UpH9XdBwBwFCwKgkdolyP9p+AZnTzStj+xD2OX7I32tWKJTBzeDmGWHUDnFzvC0q+3nCicDI0URYzlGxbkN5L7ae1LjvxW8BoJ5UoWkPs2OvS9JEckS+bLgEHkPXjEy7+2RtF7np2kAeQI7zs7Q==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>"
-auth = "WyI0MTUxNTQiLCJubHpjRGxrb1BLZTU5bGFUZXpmTW1NNjNadWEwOVYwVmVkWDZtL09RIl0="
-
-
-
-with open('LicenseKey.json') as datass_file:
-    global key_loaded
-    key_loaded = json.load(datass_file)
-
-b_in_dict =  "Key" in key_loaded
-if (b_in_dict == False):
-  LicenseKey = input('Input Your License Key: ')
-
-  data = {
-  'Key' : LicenseKey
-  }
-
-  with io.open('LicenseKey.json', 'w', encoding='utf8') as outfile:
-      str_ = json.dumps(data,indent=4, sort_keys=True, separators=(',', ': '), ensure_ascii=False)
-      outfile.write(to_unicode(str_))
-
-else:
-  pass
-
-with open('LicenseKey.json') as datass_file:
-  key_loaded = json.load(datass_file)
-
-time.sleep(.5)
-result = Key.activate(token=auth,\
-                   rsa_pub_key=RSAPubKey,\
-                   product_id=9637, \
-                   key=key_loaded["Key"],\
-                   machine_code=Helpers.GetMachineCode())
-
-if result[0] == None or not Helpers.IsOnRightMachine(result[0]):
-    # an error occurred or the key is invalid or it cannot be activated
-    # (eg. the limit of activated devices was achieved)
-    print("The license does not work: {0}".format(result[1]))
-else:
-    # everything went fine if we are here!
-    print("The license is valid!")
-    os.system("title Arsenal AIO Welcome Back: %s" % key_loaded["Key"])
-
-time.sleep(1)
-
 Mainthread()
 
 
